@@ -52,13 +52,6 @@
           </div>
 
           <button class="btn" type="submit">Login</button>
-
-          <div class="divider">or</div>
-
-          <a class="link" href="/register">Go to Register</a>
-        </form>
-      </div>
-
     </div>
   </div>
 </body>
