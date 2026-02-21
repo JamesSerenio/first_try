@@ -1,31 +1,91 @@
-dashboard-map.css/* public/css/dashboard-map.css */
+/* public/css/dashboard-map.css */
 
-* {
-  box-sizing: border-box;
-}
-
-html, body {
-  height: 100%;
-}
+* { box-sizing: border-box; }
+html, body { height: 100%; }
 
 body {
   margin: 0;
-  padding: 20px;
+  padding: 18px;
   font-family: Arial, sans-serif;
-  background: #071a33; /* navy */
+  background: #071a33;
   color: #ffffff;
 }
 
-/* top bar */
+/* ✅ TOPBAR */
 .topbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
+  gap: 14px;
   margin-bottom: 14px;
 }
 
-/* card */
+.left { min-width: 180px; }
+
+.welcome {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 800;
+}
+
+/* right side: search + logout */
+.right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ✅ Search next to logout */
+.search-mini {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  /* ✅ Fix width so it won't be too wide */
+  width: 520px;
+  max-width: 52vw;  /* responsive */
+}
+
+.search-input {
+  flex: 1;
+  padding: 11px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.18);
+  background: rgba(0,0,0,.25);
+  color: #fff;
+  outline: none;
+}
+
+.search-input::placeholder {
+  color: rgba(255,255,255,.55);
+}
+
+.search-input:focus {
+  border-color: rgba(245,176,27,.75);
+  box-shadow: 0 0 0 4px rgba(245,176,27,.25);
+}
+
+.logout-form { margin: 0; }
+
+/* ✅ Button */
+.btn {
+  border: none;
+  padding: 10px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 800;
+  background: #f5b01b;
+  color: #111;
+  white-space: nowrap;
+}
+
+.btn:hover { filter: brightness(1.05); }
+
+.btn-logout {
+  background: #f5b01b;
+}
+
+/* ✅ Card */
 .card {
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.12);
@@ -34,43 +94,59 @@ body {
   margin-bottom: 14px;
 }
 
-/* button */
-.btn {
-  border: none;
-  padding: 10px 14px;
-  border-radius: 12px;
-  cursor: pointer;
-  font-weight: 700;
-  background: #f5b01b; /* yellow */
-  color: #111;
-}
-
-/* coordinates text */
 .coords {
   font-size: 14px;
-  opacity: 0.9;
+  opacity: 0.92;
 }
 
-/* map container */
+.hint {
+  margin-top: 8px;
+  font-size: 12px;
+  opacity: 0.8;
+  line-height: 1.4;
+}
+
+/* ✅ Map container */
 #map {
   width: 100%;
   height: 520px;
   border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255,255,255,.15);
   overflow: hidden;
 }
 
-/* mobile responsive */
-@media (max-width: 600px) {
-  body {
-    padding: 12px;
+/* ✅ Mobile responsive */
+@media (max-width: 900px) {
+  .topbar {
+    flex-direction: column;
+    align-items: stretch;
   }
 
-  #map {
-    height: 380px;
+  .right {
+    width: 100%;
+    justify-content: space-between;
   }
 
-  .topbar h2 {
-    font-size: 18px;
+  .search-mini {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .welcome {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 520px) {
+  #map { height: 380px; }
+  body { padding: 12px; }
+
+  .right {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn {
+    width: 100%;
   }
 }
